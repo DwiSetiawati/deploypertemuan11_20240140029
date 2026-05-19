@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f5f4f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border: 0.5px solid #dddcd5;
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            max-width: 420px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1rem;
+            border-bottom: 0.5px solid #e0dfd8;
+        }
+
+        p {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 0.75rem 0;
+            border-bottom: 0.5px solid #e0dfd8;
+        }
+
+        p:last-of-type {
+            border-bottom: none;
+        }
+
+        p::before {
+            font-size: 12px;
+            color: #888780;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        p:nth-of-type(1)::before { content: "Username"; }
+        p:nth-of-type(2)::before { content: "Nama"; }
+        p:nth-of-type(3)::before { content: "Alamat"; }
+
+        span {
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border: 0.5px solid #c0bfb8;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #5f5e5a;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            background: #eceae4;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Home</h1>
+
+    <p>
+        <span th:text="${user.username}"></span>
+    </p>
+
+    <p>
+        <span th:text="${profile.nama}"></span>
+    </p>
+
+    <p>
+        <span th:text="${profile.alamat}"></span>
+    </p>
+
+    <a th:href="@{/logout}">
+        Logout
+    </a>
+</div>
+
+</body>
+</html>
